@@ -5,23 +5,23 @@ void setup() {
 }
 
 void loop() {
-  // digitalWrite(7, HIGH);  // LED ON
-  // delay(250);
-  // digitalWrite(7, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(7, HIGH);  // LED ON
+  delay(250);
+  digitalWrite(7, LOW);  // LED OFF
+  delay(250);
 
-  // digitalWrite(8, HIGH);  // LED ON
-  // delay(250);
-  // digitalWrite(8, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(8, HIGH);  // LED ON
+  delay(250);
+  digitalWrite(8, LOW);  // LED OFF
+  delay(250);
 
-  // digitalWrite(8, HIGH);  // LED ON
-  // delay(250);
-  // digitalWrite(8, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(8, HIGH);  // LED ON
+  delay(250);
+  digitalWrite(8, LOW);  // LED OFF
+  delay(250);
 
-  // digitalWrite(11, HIGH);  // LED ON
-  analogWrite(11, 0);  // LED ON
+  digitalWrite(11, HIGH);  // LED ON
+  // analogWrite(11, 0);  // LED ON
   delay(100);
   analogWrite(11, 10);  // LED ON
   delay(100);
@@ -51,16 +51,16 @@ void loop() {
   delay(100);
   analogWrite(11, 255);  // LED ON
   delay(100);
-  // digitalWrite(11, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(11, LOW);  // LED OFF
+  delay(250);
 
-  // digitalWrite(11, HIGH);  // LED ON
-  // delay(250);
-  // digitalWrite(11, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(11, HIGH);  // LED ON
+  delay(250);
+  digitalWrite(11, LOW);  // LED OFF
+  delay(250);
 
-  // digitalWrite(11, HIGH);  // LED ON
-  // delay(250);
-  // digitalWrite(11, LOW);  // LED OFF
-  // delay(250);
+  digitalWrite(11, HIGH);  // LED ON
+  delay(250);
+  digitalWrite(11, LOW);  // LED OFF
+  delay(250);
 }
