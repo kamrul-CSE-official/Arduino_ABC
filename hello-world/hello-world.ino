@@ -1,66 +1,46 @@
+
+#define LED1 7
+#define LED2 8
+#define BUZZER 11
+
+// Happy Birthday melody
+int melody[] = {
+  262, 262, 294, 262, 349, 330,
+  262, 262, 294, 262, 392, 349,
+  262, 262, 523, 440, 349, 330, 294,
+  466, 466, 440, 349, 392, 349
+};
+
+// Note durations in milliseconds
+int duration[] = {
+  250, 250, 500, 500, 500, 1000,
+  250, 250, 500, 500, 500, 1000,
+  250, 250, 500, 500, 500, 500, 1000,
+  250, 250, 500, 500, 500, 1000
+};
+
 void setup() {
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
-  pinMode(11, OUTPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(7, HIGH);  // LED ON
-  delay(250);
-  digitalWrite(7, LOW);  // LED OFF
-  delay(250);
+  int totalNotes = sizeof(melody) / sizeof(melody[0]);
 
-  digitalWrite(8, HIGH);  // LED ON
-  delay(250);
-  digitalWrite(8, LOW);  // LED OFF
-  delay(250);
+  for (int i = 0; i < totalNotes; i++) {
+    // Blink LEDs with the music
+    digitalWrite(LED1, (i % 2 == 0) ? HIGH : LOW);
+    digitalWrite(LED2, (i % 2 == 1) ? HIGH : LOW);
 
-  digitalWrite(8, HIGH);  // LED ON
-  delay(250);
-  digitalWrite(8, LOW);  // LED OFF
-  delay(250);
+    tone(BUZZER, melody[i]);
+    delay(duration[i]);
 
-  digitalWrite(11, HIGH);  // LED ON
-  // analogWrite(11, 0);  // LED ON
-  delay(100);
-  analogWrite(11, 10);  // LED ON
-  delay(100);
-  analogWrite(11, 20);  // LED ON
-  delay(100);
-  analogWrite(11, 30);  // LED ON
-  delay(100);
-  analogWrite(11, 40);  // LED ON
-  delay(100);
-  analogWrite(11, 50);  // LED ON
-  delay(100);
-  analogWrite(11, 50);  // LED ON
-  delay(100);
-  analogWrite(11, 60);  // LED ON
-  delay(100);
-  analogWrite(11, 100);  // LED ON
-  delay(100);
-  analogWrite(11, 150);  // LED ON
-  delay(100);
-  analogWrite(11, 200);  // LED ON
-  delay(100);
-  analogWrite(11, 210);  // LED ON
-  delay(100);
-  analogWrite(11, 230);  // LED ON
-  delay(100);
-  analogWrite(11, 250);  // LED ON
-  delay(100);
-  analogWrite(11, 255);  // LED ON
-  delay(100);
-  digitalWrite(11, LOW);  // LED OFF
-  delay(250);
+    noTone(BUZZER);
+    delay(80);
+  }
 
-  digitalWrite(11, HIGH);  // LED ON
-  delay(250);
-  digitalWrite(11, LOW);  // LED OFF
-  delay(250);
-
-  digitalWrite(11, HIGH);  // LED ON
-  delay(250);
-  digitalWrite(11, LOW);  // LED OFF
-  delay(250);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  delay(2000);
 }
