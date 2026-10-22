@@ -1,12 +1,13 @@
 
-boolean greenLed = false;
+
+int temp = 25;
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(7, OUTPUT);
   pinMode(8, OUTPUT);
 
-  if(greenLed){
+  if(temp <= 20){
     digitalWrite(7, HIGH);
     digitalWrite(8, LOW);
   }else {
