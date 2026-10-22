@@ -1,23 +1,24 @@
-
-
-int temp = 25;
+String message = "on";
+int LED = 8;
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
+  Serial.begin(9600);
 
-  if(temp <= 20){
-    digitalWrite(7, HIGH);
-    digitalWrite(8, LOW);
-  }else {
-    digitalWrite(8, HIGH);
-    digitalWrite(7, LOW);
-  }
-
+  pinMode(LED, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if (Serial.available()) {
+    message = Serial.readStringUntil('\n');
+    message.trim();
 
+    if (message.equalsIgnoreCase("ON")) {
+      digitalWrite(LED, HIGH);
+    } else if (message.equalsIgnoreCase("OFF")) {
+      digitalWrite(LED, LOW);
+    }
+
+    Serial.print("Arduino Response: ");
+    Serial.println(message);
+  }
 }
